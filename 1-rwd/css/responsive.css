@@ -1,0 +1,47 @@
+@media all and (max-width: 1170px) {
+    
+    #header {
+        font-size: 1.4vw;
+        height: 70vh;
+        background-image: url(../img/man-2.jpg);
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-start;
+    }
+    
+    #text {
+        position: absolute;
+        top: 10%;
+        left: 60%;
+    }
+}
+
+
+
+@media (max-width: 992px) {
+    body {
+        color: #000;
+    }
+    
+    #header {
+        font-size: 2vw;
+        background-image: url(../img/man-1.jpg);
+        height: 50vh;   
+    }  
+    
+    #text {
+        width: 100%;
+        top: 100%;
+        left: 0;
+        text-align: center;
+        position: absolute;
+    }  
+    
+    h3 {
+        font-size: 3vw;      
+    }
+    
+}
+
+
+
