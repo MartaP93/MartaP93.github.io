@@ -1,0 +1,53 @@
+@media all and (max-width: 992px) {
+    #main_content {
+        flex-flow: row wrap;
+    }
+
+    #article,
+    #left,
+    #right {
+        height: 50%;
+    }
+
+    #article {
+        width: 75%;
+        order: 1;
+    }
+
+    #right {
+        width: 25%;
+        order: 2;
+    }
+
+    #left {
+        width: 100%;
+        order: 3;
+    }
+
+}
+
+
+@media all and (max-width: 768px) {
+
+    #article,
+    #left,
+    #right {
+        height: 33.33%;
+        overflow: auto;
+    }
+
+    #article {
+        width: 100%;
+        order: 1;
+    }
+
+    #right {
+        width: 100%;
+        order: 3;
+    }
+
+    #left {
+        width: 100%;
+        order: 2;
+    }
+}
