@@ -18,48 +18,89 @@ $colors: (
     flex-wrap: $wrap;
 }
 
+@mixin size($height, $width){
+    height: $height;
+    width: $width;
+}
+
+// RESPONSIVE
+@mixin desktop($desktop) {
+    @media (max-width: #{$desktop}) {
+        @content;
+    }
+}
+
+@mixin responsive-height-width($desktop1, $height1, $width1, $desktop2, $height2, $width2) {
+    @media (max-width: #{$desktop1}) {
+        height: $height1;
+        width: $width1;
+    }
+    @media (max-width: #{$desktop2}) {
+        height: $height2;
+        width: $width2;
+    }
+}
+
+@mixin responsive-font($desktop1, $font1, $desktop2, $font2) {
+    @media (max-width: #{$desktop1}) {
+        font-size: $font1;
+    }
+    @media (max-width: #{$desktop2}) {
+        font-size: $font2;
+    }
+}
+
+//  - -- - -- - SASS - -- - RULES - -- - END -- - -- - -- 
+
 body, html {
     margin: 0;
     font-family: 'Open Sans Condensed', sans-serif;
 }
 
 #main {
-    height: 105vh;
-    width: 100%;
+    @include size(105vh, 100%);
+    @include flex(center, center, center, wrap);
     background-image: url(../img/intro-bg.png);
-    background-size: 100%;
+    background-size: cover;
     opacity: 0.9;
     background-repeat: no-repeat;
-    @include flex(center, center, center, wrap);
 
     .nav-bar {
-        height: 70px;
-        width: 100%;
-        background-color: transparent;
+        @include size(70px, 100%);
         @include flex(space-between, 0, 0, 0);
+        background-color: color(dark-grey);
         position: fixed;
         top: 0;
         z-index: 10;
 
+        @include desktop(776px) {
+            @include size(50px, 100%);
+        }
+
         h1 {
             padding: 0;
             margin: 0;
+            @include size(100%, 20%);
+            @include flex(center, center, 0, 0);           
             color: color(lemon);
             font-family: 'Dancing Script', cursive;
-            font-size: 2.5em;
-            height: 100%;
-            width: 20%;
-            @include flex(center, center, 0, 0);
+            font-size: 3vw;
+
+            @include desktop(560px) {
+                font-size: 1.2em;
+            }
         }
     
         ul {
-            height: 100%;
-            width: 40%;
+            @include size(100%, 40%);
             @include flex(space-evenly, center, 0, 0);
             margin: 0;
             margin-right: 6%;
             padding-inline-start: 0;
             text-transform: uppercase;
+
+            @include responsive-height-width(776px, 100%, 60%, 560px, 100%, 80%);
+            @include responsive-font(776px, 0.9em, 560px, 0.8em);
     
             li {
                 list-style-type: none;
@@ -84,46 +125,65 @@ body, html {
     h1 {
         margin: 0;
         font-family: 'Dancing Script', cursive;
-        font-size: 9em;
+        font-size: 10vw;
+
+        @include responsive-font(960px, 14vw, 480px, 18vw);
     }
 
     p {
-        font-size: 2.2em;
+        font-size: 2.2vw;
         margin: 0;
+
+        @include responsive-font(776px, 3vw, 480px, 4vw);
     }
 
     .discover {
         background-color: color(lemon);
-        width: 200px;
-        height: 50px;
+        @include size(35px, 150px);
+        @include flex(center, center, 0, 0);
         text-decoration: none;
         color: color(white1);
-        @include flex(center, center, 0, 0);
         font-family: 'Krub', sans-serif;
-        font-size: 1em;
+        font-size: 0.8em;
         margin-top: 50px;
         text-transform: uppercase;
     }
 }
 
 #about {
-    height: 90vh;
-    width: 100%;
+    @include size(90vh, 100%);
     @include flex(center, center, 0, 0);
 
     .container-about {
-        width: 100%;
-        height: 70%;
-        @include flex(center, 0, 0, 0);
-
-        .image, .text-about {
-            height: 100%;
-            width: 40%;
-            @include flex(0, center, 0, 0);
+        @include size(70%, 100%);
+        @include flex(center, 0, 0, wrap);
+        
+        @include desktop(776px) {
+            @include flex(center, 0, space-evenly, wrap);
         }
 
-        img {
-            width: 85%;
+        .image, .text-about {
+            @include size(100%, 40%);
+            @include flex(0, center, 0, 0);
+            
+            @include desktop(776px) {
+                @include size(100%, 90%);
+            }
+        }
+
+        .image {
+            @include desktop(776px) {
+                @include size(0%, 40%);
+            }
+
+            img {
+                width: 85%;
+
+                @include desktop(776px) {
+                    position: absolute;
+                    opacity: 0;
+                }
+            }
         }
 
         .text-about {
@@ -136,16 +196,26 @@ body, html {
             }
 
             h2 {
-                font-size: 2.2em;
+                font-size: 2.2vw;
                 text-transform: uppercase;
+
+                @include desktop(776px) {
+                    font-size: 3vw;
+                }
             }
 
             h3 {
-                font-size: 1.8em;
+                font-size: 1.8vw;
+
+                @include desktop(776px) {
+                    font-size: 3vw;
+                }
             }
 
             p {
-                font-size: 1.2em;
+                font-size: 1.4vw;
+
+                @include responsive-font(960px, 2vw, 776px, 2.5vw);
             }
         }
     }
@@ -153,14 +223,22 @@ body, html {
 
 #menu {
     color: color(white1);
-    height: 130vh;
+    @include size(130vh, 100%);
     background-image: url(../img/menu-bg.jpg);
     background-size: cover;
     background-attachment: fixed;
 
+    @include desktop(776px) {
+        @include size(260vh, 100%);
+    }
+
     .menu-main {
-        height: 30%;
+        @include size(30%, 100%);
         @include flex(center, 0, center, wrap);
+
+        @include desktop(776px) {
+            @include size(15%, 100%);
+        }
 
         h3, p {
             width: 100%;
@@ -175,39 +253,47 @@ body, html {
                 font-size: 3.5vw;
                 margin: 0;
                 text-transform: uppercase;
+
+                @include responsive-font(776px, 4.5vw, 480px, 5.5vw);
             }
             
             hr {
                 background-color: color(lemon);
-                width: 50px;
-                height: 2px;
+                @include size(2px, 50px);
                 border: none;
             }
         }
         
         p {
             font-size: 2vw;
+
+            @include responsive-font(776px, 2.5vw, 480px, 3.5vw);
         }
     }
 
     .menu-card {
-        height: 70%;
-        background-color:color(white1);
+        @include size(70%, 100%);
         @include flex(space-evenly, 0, 0, wrap);
-
+        background-color:color(white1);
         color: color(dark-grey);
 
+        @include desktop(776px) {
+            @include size(85%, 100%);
+        }
+
         .menu-card-column {
-            width: 40%;
-            height: 100%;
+            @include size(100%, 40%);
             @include flex(center, center, 0, 0);
 
+            @include desktop(776px) {
+                @include size(50%, 70%);
+            }
+
             .menu-card-container {
-                height: 90%;
-                width: 90%;
+                @include size(90%, 90%);
 
                 .menu-card-title {
-                    height: 15%;
+                    @include size(15%, 100%);
                     @include flex(center, 0, space-evenly, wrap);
 
                     h3 {
@@ -216,27 +302,32 @@ body, html {
                         margin: 0;
                         text-align: center;
                         text-transform: uppercase;
+
+                        @include desktop(480px) {
+                            font-size: 4vw;
+                        }
                     }
                     
                     hr {
                         background-color: color(lemon);
-                        width: 50px;
-                        height: 2px;
+                        @include size(2px, 50px);
                         border: none;
                     }
                 }
                 .menu-card-dishes {
-                    height: 85%;
+                    @include size(85%, 100%);
 
                     .dish-container {
-                        height: 20%;
+                        @include size(20%, 100%);
 
                         .dish-name {
-                            height: 35%;
+                            @include size(35%, 100%);
                             border-bottom: 2px dotted color(light-grey);
                             font-size: 1.8vw;
                             font-weight: bold;
                             @include flex(space-between, 0, 0, 0);
+
+                            @include responsive-font(776px, 2.5vw, 480px, 3vw);
 
                             h4 {
                                 margin: 0;
@@ -249,9 +340,11 @@ body, html {
                         }
 
                         .dish-description {
-                            height: 65%;
+                            @include size(65%, 100%);
                             font-size: 1.3vw;
                             font-style: italic;
+
+                            @include responsive-font(776px, 2vw, 480px, 2.5vw);
                         }
                     }
                 }
@@ -262,15 +355,19 @@ body, html {
 
 
 #gallery {
-    height: 200vh;
+    @include size(200vh, 100%);
     background-image: url(../img/gallery-bg.jpg);
     background-size: cover;
     background-attachment: fixed;
     color: color(white1);
 
+    @include responsive-height-width(960px, 250vh, 100%, 480px, 400vh, 100%);
+
     .gallery-main {
-        height: 23%;
+        @include size(23%, 100%);
         @include flex(center, 0, center, wrap);
+
+        @include responsive-height-width(960px, 15%, 100%, 480px, 10%, 100%);
 
         h3, p {
             width: 100%;
@@ -285,61 +382,47 @@ body, html {
                 font-size: 3.5vw;
                 margin: 0;
                 text-transform: uppercase;
+
+                @include responsive-font(776px, 4.5vw, 480px, 5.5vw);
             }
             
             hr {
                 background-color: color(lemon);
-                width: 50px;
-                height: 2px;
+                @include size(2px, 50px);
                 border: none;
             }
         }
         
         p {
             font-size: 2vw;
+
+            @include responsive-font(776px, 2.5vw, 480px, 3.5vw);
         }
     }
 
     .gallery-photos {
         background-color: color(white1);
-        height: 77%;
-        @include flex(center, 0, 0, wrap);
+        @include size(77%, 100%);
+        @include flex(center, center, 0, wrap);
 
-        .gallery-categories {
-            height: 10%;
-            width: 60%;
-            @include flex(space-evenly, flex-end, 0, 0);
-
-            a {
-                width: 20%;
-                height: 40%;
-                font-size: 1.6vw;
-                text-decoration: none;
-                color: color(middle-grey);
-                background-color: color(light-grey);
-                @include flex(center, center, 0, 0);
-                text-transform: uppercase;
-            }
-
-            a:hover {
-                background-color: color(lemon);
-                color: color(white1);
-            }
-        }
+        @include responsive-height-width(960px, 85%, 100%, 480px, 90%, 100%);
 
         .gallery-container {
-            height: 80%;
-            width: 80%;
+            @include size(90%, 80%);
             @include flex(space-evenly, 0, space-evenly, wrap);
 
+            @include desktop(480px) {
+                @include size(97%, 100%);
+            }
+
             a {
-                height: 20%;
-                width: 30%;
+                @include size(21%, 30%);
                 position: relative;
 
+                @include responsive-height-width(960px, 13%, 45%, 480px, 8%, 80%);
+
                 img {
-                    height: 100%;
-                    width: 100%;
+                    @include size(100%, 100%);
                     z-index: 1;
                 }
 
@@ -348,14 +431,15 @@ body, html {
                     position: absolute;
                     top: 0;
                     left: 0;
-                    height: 100%;
-                    width: 100%;
+                    @include size(100%, 100%);
                     opacity: 0;
                     font-size: 2.5vw;
                     font-weight: bold;
                     color: color(white1);
                     background-color: color(dark-grey);
                     @include flex(center, center, 0, 0);
+
+                    @include responsive-font(960px, 3vw, 480px, 5vw);
                 }
 
                 p:hover {
@@ -368,10 +452,10 @@ body, html {
 }
 
 #contact {
-    height: 50vh;
+    @include size(50vh, 100%);
 
     .contact-phone {
-        height: 45%;
+        @include size(45%, 100%);
         background-color: color(lemon);
         color: color(white1);
         @include flex(center, center, 0, 0);
@@ -380,19 +464,20 @@ body, html {
             margin: 0;
             font-size: 3.5vw;
             text-transform: uppercase;
+
+            @include responsive-font(960px, 4vw, 480px, 5vw);
         }
     }
 
     .contact-address {
-        height: 55%;
+        @include size(55%, 100%);
         display: flex;
         background-color: color(dark-grey);
         color: white;
         @include flex(center, flex-start, 0, 0);
 
         .address-section {
-            width: 30%;
-            height: 80%;
+            @include size(80%, 30%);
             @include flex(center, center, 0, wrap);
 
             h3, p {
@@ -401,29 +486,22 @@ body, html {
             }
 
             h3 {
-                width: 100%;
-                height: 60%;
+                @include size(60%, 100%);
                 margin: 0;
                 font-size: 2vw;
                 color: color(lemon);
                 align-items: flex-end;
                 text-transform: uppercase;
+
+                @include responsive-font(960px, 3vw, 480px, 3.5vw);
             }
 
             p {
                 margin: 0;
-                height: 40%;
+                @include size(40%, 100%);
+
+                @include responsive-font(960px, 2.2vw, 480px, 2vw);
             }
         }
     }
-}
-
-// ANIMATIONS 
-.nav-bar-scroll {
-    background-color: color(dark-grey);
-    transition: 0.5s;
-}
-
-.active-link {
-    color: color(lemon);
 }
