@@ -9,6 +9,7 @@ $('#en').click(function () {
     $(".portfolio div:eq(3) h3").text('Touché restaurant');
     $(".portfolio div:eq(3) p").text('Single-page restaurant website. Created using HTML5, CSS3, SASS and jQuery library.');
     $(".portfolio div:eq(4) p").text('Virtual instrument that enables you to play by using computer keyboard. Coded in pure HTML5, CSS3, JavaScript.');
+    $("#pl").removeClass('pl');
 });
 
 $('#pl').click(function () {
