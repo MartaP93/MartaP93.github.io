@@ -1,7 +1,7 @@
 body, html {
   margin: 0;
-  font-family: 'Montserrat', sans-serif;
-  color: white;
+  font-family: 'Montserrat', Times, serif;
+  color: #524b4b;
 }
 
 .header {
@@ -101,14 +101,14 @@ body, html {
 @media (max-width: 840px) {
   .header .icons-container {
     height: 100%;
-    width: 15%;
+    width: 17%;
   }
 }
 
 @media (max-width: 650px) {
   .header .icons-container {
     height: 100%;
-    width: 20%;
+    width: 22%;
   }
 }
 
@@ -119,16 +119,23 @@ body, html {
   }
 }
 
+@media (max-width: 420px) {
+  .header .icons-container {
+    height: 100%;
+    width: 30%;
+  }
+}
+
 .header .icons-container a i {
+  -webkit-transform: scale(1.3, 1.3);
+          transform: scale(1.3, 1.3);
   color: #524b4b;
-  -webkit-transform: scale(1.5, 1.5);
-          transform: scale(1.5, 1.5);
 }
 
 @media (max-width: 840px) {
   .header .icons-container a i {
-    -webkit-transform: scale(1.3, 1.3);
-            transform: scale(1.3, 1.3);
+    -webkit-transform: scale(1.2, 1.2);
+            transform: scale(1.2, 1.2);
   }
 }
 
@@ -171,7 +178,6 @@ body, html {
       align-content: center;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  color: #524b4b;
   position: relative;
 }
 
@@ -370,7 +376,6 @@ body, html {
   margin: 0;
   font-size: 2vw;
   text-transform: uppercase;
-  color: #524b4b;
 }
 
 @media (max-width: 840px) {
