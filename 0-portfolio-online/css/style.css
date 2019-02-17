@@ -6,13 +6,13 @@ body, html {
 
 .header {
   height: 11vh;
-  width: 90%;
+  width: 80%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   -webkit-box-align: 0;
       -ms-flex-align: 0;
           align-items: 0;
@@ -23,6 +23,61 @@ body, html {
   background-color: white;
   position: fixed;
   z-index: 2;
+  margin-left: 10%;
+}
+
+.header .languages {
+  height: 100%;
+  width: 8%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-line-pack: 0;
+      align-content: 0;
+  -ms-flex-wrap: 0;
+      flex-wrap: 0;
+}
+
+.header .languages button {
+  border: none;
+  background-color: transparent;
+  font-size: 1.3vw;
+  cursor: pointer;
+}
+
+@media (max-width: 840px) {
+  .header .languages button {
+    font-size: 1.5vw;
+  }
+}
+
+@media (max-width: 650px) {
+  .header .languages button {
+    font-size: 2.5vw;
+  }
+}
+
+@media (max-width: 480px) {
+  .header .languages button {
+    font-size: 3vw;
+  }
+}
+
+.header .languages button:hover {
+  -webkit-transform: scale(1.1, 1.1);
+          transform: scale(1.1, 1.1);
+  color: #33967d;
+}
+
+.header .languages button:focus {
+  outline: none;
+  color: #33967d;
 }
 
 .header .icons-container {

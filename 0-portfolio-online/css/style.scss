@@ -46,15 +46,39 @@ $colors: (
 body, html {
     margin: 0;
     font-family: 'Montserrat', sans-serif;
-    color: rgb(255,255,255);
+    color: color(white1);
 }
 
 .header {
-    @include size(11vh, 90%);
-    @include flex(flex-end, 0, 0, 0);
+    @include size(11vh, 80%);
+    @include flex(space-between, 0, 0, 0);
     background-color: color(white1);
     position: fixed;
     z-index: 2;
+    margin-left: 10%;
+
+    .languages {
+        @include size(100%, 8%);
+        @include flex(space-between, center, 0, 0);
+
+        button {
+            border: none;
+            background-color: transparent;
+            font-size: 1.3vw;
+            @include responsive-font(1.5vw, 2.5vw, 3vw);
+            cursor: pointer;
+        }
+
+        button:hover {
+            transform: scale(1.1,1.1);
+            color: color(green-sea);
+        }
+
+        button:focus {
+            outline: none;
+            color: color(green-sea);
+        }
+    }
 
     .icons-container {
         @include size(100%, 13%);
