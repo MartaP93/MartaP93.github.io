@@ -57,6 +57,56 @@ body, html {
     font-family: 'Open Sans Condensed', sans-serif;
 }
 
+.nav-bar {
+    @include size(70px, 100%);
+    @include flex(space-between, 0, 0, 0);
+    background-color: color(dark-grey);
+    position: fixed;
+    top: 0;
+    z-index: 1;
+
+    @include desktop(776px) {
+        @include size(50px, 100%);
+    }
+
+    h1 {
+        padding: 0;
+        margin: 0;
+        @include size(100%, 20%);
+        @include flex(center, center, 0, 0);           
+        color: color(lemon);
+        font-family: 'Dancing Script', cursive;
+        font-size: 3vw;
+
+        @include desktop(560px) {
+            font-size: 1.2em;
+        }
+    }
+
+    ul {
+        @include size(100%, 40%);
+        @include flex(space-evenly, center, 0, 0);
+        margin: 0;
+        margin-right: 6%;
+        padding-inline-start: 0;
+        text-transform: uppercase;
+        @include responsive-height-width(776px, 100%, 60%, 560px, 100%, 80%);
+        @include responsive-font(776px, 0.9em, 560px, 0.8em);
+
+        li {
+            list-style-type: none;
+            a {
+                text-decoration: none;
+                color: color(light-grey);
+                font-family: 'Krub', sans-serif;
+            }
+            a:hover {
+                color: color(lemon);
+            }
+        }
+    }
+}
+
 #main {
     @include size(105vh, 100%);
     @include flex(center, center, center, wrap);
@@ -64,57 +114,6 @@ body, html {
     background-size: cover;
     opacity: 0.9;
     background-repeat: no-repeat;
-
-    .nav-bar {
-        @include size(70px, 100%);
-        @include flex(space-between, 0, 0, 0);
-        background-color: color(dark-grey);
-        position: fixed;
-        top: 0;
-        z-index: 10;
-
-        @include desktop(776px) {
-            @include size(50px, 100%);
-        }
-
-        h1 {
-            padding: 0;
-            margin: 0;
-            @include size(100%, 20%);
-            @include flex(center, center, 0, 0);           
-            color: color(lemon);
-            font-family: 'Dancing Script', cursive;
-            font-size: 3vw;
-
-            @include desktop(560px) {
-                font-size: 1.2em;
-            }
-        }
-    
-        ul {
-            @include size(100%, 40%);
-            @include flex(space-evenly, center, 0, 0);
-            margin: 0;
-            margin-right: 6%;
-            padding-inline-start: 0;
-            text-transform: uppercase;
-
-            @include responsive-height-width(776px, 100%, 60%, 560px, 100%, 80%);
-            @include responsive-font(776px, 0.9em, 560px, 0.8em);
-    
-            li {
-                list-style-type: none;
-                a {
-                    text-decoration: none;
-                    color: color(light-grey);
-                    font-family: 'Krub', sans-serif;
-                }
-                a:hover {
-                    color: color(lemon);
-                }
-            }
-        }
-    }
 
     h1, p {
         width: 100%;
@@ -419,7 +418,7 @@ body, html {
                 @include size(21%, 30%);
                 position: relative;
 
-                @include responsive-height-width(960px, 13%, 45%, 480px, 8%, 80%);
+                @include responsive-height-width(960px, 13%, 45%, 480px, 7%, 70%);
 
                 img {
                     @include size(100%, 100%);

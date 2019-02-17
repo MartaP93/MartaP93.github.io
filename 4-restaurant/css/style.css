@@ -3,29 +3,7 @@ body, html {
   font-family: 'Open Sans Condensed', sans-serif;
 }
 
-#main {
-  height: 105vh;
-  width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -ms-flex-line-pack: center;
-      align-content: center;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  background-image: url(../img/intro-bg.png);
-  background-size: cover;
-  opacity: 0.9;
-  background-repeat: no-repeat;
-}
-
-#main .nav-bar {
+.nav-bar {
   height: 70px;
   width: 100%;
   display: -webkit-box;
@@ -44,17 +22,17 @@ body, html {
   background-color: #262626;
   position: fixed;
   top: 0;
-  z-index: 10;
+  z-index: 1;
 }
 
 @media (max-width: 776px) {
-  #main .nav-bar {
+  .nav-bar {
     height: 50px;
     width: 100%;
   }
 }
 
-#main .nav-bar h1 {
+.nav-bar h1 {
   padding: 0;
   margin: 0;
   height: 100%;
@@ -78,12 +56,12 @@ body, html {
 }
 
 @media (max-width: 560px) {
-  #main .nav-bar h1 {
+  .nav-bar h1 {
     font-size: 1.2em;
   }
 }
 
-#main .nav-bar ul {
+.nav-bar ul {
   height: 100%;
   width: 40%;
   display: -webkit-box;
@@ -107,43 +85,65 @@ body, html {
 }
 
 @media (max-width: 776px) {
-  #main .nav-bar ul {
+  .nav-bar ul {
     height: 100%;
     width: 60%;
   }
 }
 
 @media (max-width: 560px) {
-  #main .nav-bar ul {
+  .nav-bar ul {
     height: 100%;
     width: 80%;
   }
 }
 
 @media (max-width: 776px) {
-  #main .nav-bar ul {
+  .nav-bar ul {
     font-size: 0.9em;
   }
 }
 
 @media (max-width: 560px) {
-  #main .nav-bar ul {
+  .nav-bar ul {
     font-size: 0.8em;
   }
 }
 
-#main .nav-bar ul li {
+.nav-bar ul li {
   list-style-type: none;
 }
 
-#main .nav-bar ul li a {
+.nav-bar ul li a {
   text-decoration: none;
   color: gainsboro;
   font-family: 'Krub', sans-serif;
 }
 
-#main .nav-bar ul li a:hover {
+.nav-bar ul li a:hover {
   color: #72a411;
+}
+
+#main {
+  height: 105vh;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  background-image: url(../img/intro-bg.png);
+  background-size: cover;
+  opacity: 0.9;
+  background-repeat: no-repeat;
 }
 
 #main h1, #main p {
@@ -842,8 +842,8 @@ body, html {
 
 @media (max-width: 480px) {
   #gallery .gallery-photos .gallery-container a {
-    height: 8%;
-    width: 80%;
+    height: 7%;
+    width: 70%;
   }
 }
 
