@@ -84,8 +84,8 @@ body, html {
     }
 
     ul {
-        @include size(100%, 40%);
-        @include flex(space-evenly, center, 0, 0);
+        @include size(100%, 35%);
+        @include flex(space-around, center, 0, 0);
         margin: 0;
         margin-right: 6%;
         padding-inline-start: 0;
@@ -100,6 +100,7 @@ body, html {
                 color: color(light-grey);
                 font-family: 'Krub', sans-serif;
             }
+
             a:hover {
                 color: color(lemon);
             }
@@ -153,12 +154,16 @@ body, html {
     @include size(90vh, 100%);
     @include flex(center, center, 0, 0);
 
+    @include desktop(480px) {
+        @include size(70vh, 100%);
+    }
+
     .container-about {
         @include size(70%, 100%);
         @include flex(center, 0, 0, wrap);
         
         @include desktop(776px) {
-            @include flex(center, 0, space-evenly, wrap);
+            @include flex(center, 0, space-around, wrap);
         }
 
         .image, .text-about {
@@ -186,7 +191,7 @@ body, html {
         }
 
         .text-about {
-            @include flex(flex-start, 0, space-evenly, wrap);
+            @include flex(flex-start, 0, space-around, wrap);
             color: color(dark-grey);
             height: 100%;
 
@@ -198,23 +203,21 @@ body, html {
                 font-size: 2.2vw;
                 text-transform: uppercase;
 
-                @include desktop(776px) {
-                    font-size: 3vw;
-                }
+                @include responsive-font(776px, 3vw, 480px, 4vw);
+
             }
 
             h3 {
                 font-size: 1.8vw;
 
-                @include desktop(776px) {
-                    font-size: 3vw;
-                }
+                @include responsive-font(776px, 3vw, 480px, 4vw);
+
             }
 
             p {
                 font-size: 1.4vw;
 
-                @include responsive-font(960px, 2vw, 776px, 2.5vw);
+                @include responsive-font(960px, 2vw, 776px, 3vw);
             }
         }
     }
@@ -223,13 +226,12 @@ body, html {
 #menu {
     color: color(white1);
     @include size(130vh, 100%);
+    @include flex(center, 0, 0, wrap);
     background-image: url(../img/menu-bg.jpg);
     background-size: cover;
     background-attachment: fixed;
 
-    @include desktop(776px) {
-        @include size(260vh, 100%);
-    }
+    @include responsive-height-width(776px, 260vh, 100%, 480px, 220vh, 100%);
 
     .menu-main {
         @include size(30%, 100%);
@@ -245,7 +247,7 @@ body, html {
         }
 
         .menu-main-text {
-            @include flex(center, space-evenly, 0, wrap);
+            @include flex(center, space-around, 0, wrap);
 
             h3 {
                 width: 100%;
@@ -272,7 +274,7 @@ body, html {
 
     .menu-card {
         @include size(70%, 100%);
-        @include flex(space-evenly, 0, 0, wrap);
+        @include flex(center, center, 0, wrap);
         background-color:color(white1);
         color: color(dark-grey);
 
@@ -280,70 +282,78 @@ body, html {
             @include size(85%, 100%);
         }
 
-        .menu-card-column {
-            @include size(100%, 40%);
-            @include flex(center, center, 0, 0);
+        .menu-columns-container {
+            @include flex(space-around, 0, 0, wrap);
+            @include size(100%, 90%);
 
-            @include desktop(776px) {
-                @include size(50%, 70%);
-            }
+            .menu-card-column {
+                @include size(100%, 45%);
+                @include flex(center, center, 0, 0);
 
-            .menu-card-container {
-                @include size(90%, 90%);
-
-                .menu-card-title {
-                    @include size(15%, 100%);
-                    @include flex(center, 0, space-evenly, wrap);
-
-                    h3 {
-                        width: 100%;
-                        font-size: 2.5vw;
-                        margin: 0;
-                        text-align: center;
-                        text-transform: uppercase;
-
-                        @include desktop(480px) {
-                            font-size: 4vw;
-                        }
-                    }
-                    
-                    hr {
-                        background-color: color(lemon);
-                        @include size(2px, 50px);
-                        border: none;
-                    }
+                @include desktop(776px) {
+                    @include size(50%, 70%);
                 }
-                .menu-card-dishes {
-                    @include size(85%, 100%);
 
-                    .dish-container {
-                        @include size(20%, 100%);
+                @include responsive-height-width(776px, 50%, 70%, 480px, 50%, 80%);
 
-                        .dish-name {
-                            @include size(35%, 100%);
-                            border-bottom: 2px dotted color(light-grey);
-                            font-size: 1.8vw;
-                            font-weight: bold;
-                            @include flex(space-between, 0, 0, 0);
 
-                            @include responsive-font(776px, 2.5vw, 480px, 3vw);
+                .menu-card-container {
+                    @include size(90%, 90%);
 
-                            h4 {
-                                margin: 0;
-                                width: 30%;
-                            }
+                    .menu-card-title {
+                        @include size(15%, 100%);
+                        @include flex(center, 0, space-around, wrap);
 
-                            .price {
-                                @include flex(flex-end, 0, 0, 0);
+                        h3 {
+                            width: 100%;
+                            font-size: 2.5vw;
+                            margin: 0;
+                            text-align: center;
+                            text-transform: uppercase;
+
+                            @include desktop(480px) {
+                                font-size: 4vw;
                             }
                         }
+                        
+                        hr {
+                            background-color: color(lemon);
+                            @include size(2px, 50px);
+                            border: none;
+                        }
+                    }
+                    .menu-card-dishes {
+                        @include size(85%, 100%);
 
-                        .dish-description {
-                            @include size(65%, 100%);
-                            font-size: 1.3vw;
-                            font-style: italic;
+                        .dish-container {
+                            @include size(20%, 100%);
 
-                            @include responsive-font(776px, 2vw, 480px, 2.5vw);
+                            .dish-name {
+                                @include size(35%, 100%);
+                                border-bottom: 2px dotted color(light-grey);
+                                font-size: 1.8vw;
+                                font-weight: bold;
+                                @include flex(space-between, 0, 0, 0);
+
+                                @include responsive-font(776px, 2.5vw, 480px, 3vw);
+
+                                h4 {
+                                    margin: 0;
+                                    width: 30%;
+                                }
+
+                                .price {
+                                    @include flex(flex-end, 0, 0, 0);
+                                }
+                            }
+
+                            .dish-description {
+                                @include size(65%, 100%);
+                                font-size: 1.3vw;
+                                font-style: italic;
+
+                                @include responsive-font(776px, 2vw, 480px, 2.5vw);
+                            }
                         }
                     }
                 }
@@ -374,7 +384,7 @@ body, html {
         }
 
         .gallery-main-text {
-            @include flex(center, space-evenly, 0, wrap);
+            @include flex(center, space-around, 0, wrap);
 
             h3 {
                 width: 100%;
@@ -407,18 +417,19 @@ body, html {
         @include responsive-height-width(960px, 85%, 100%, 480px, 90%, 100%);
 
         .gallery-container {
-            @include size(90%, 80%);
-            @include flex(space-evenly, 0, space-evenly, wrap);
+            @include size(85%, 75%);
+            @include flex(space-between, 0, space-between, wrap);
 
             @include desktop(480px) {
                 @include size(97%, 100%);
+                @include flex(center, 0, space-between, wrap);
             }
 
             a {
-                @include size(21%, 30%);
+                @include size(22%, 31%);
                 position: relative;
 
-                @include responsive-height-width(960px, 13%, 45%, 480px, 7%, 70%);
+                @include responsive-height-width(960px, 14%, 46%, 480px, 7%, 70%);
 
                 img {
                     @include size(100%, 100%);
@@ -452,6 +463,10 @@ body, html {
 
 #contact {
     @include size(50vh, 100%);
+
+    @include desktop(480px) {
+        @include size(35vh, 100%);
+    }
 
     .contact-phone {
         @include size(45%, 100%);
