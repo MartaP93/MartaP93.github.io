@@ -352,7 +352,7 @@ body, html {
 }
 
 .portfolio .title-container {
-  height: 8%;
+  height: 9%;
   width: 75%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -360,9 +360,9 @@ body, html {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  -webkit-box-align: end;
-      -ms-flex-align: end;
-          align-items: flex-end;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
   -ms-flex-line-pack: 0;
       align-content: 0;
   -ms-flex-wrap: 0;
@@ -371,7 +371,7 @@ body, html {
 
 @media (max-width: 650px) {
   .portfolio .title-container {
-    height: 5%;
+    height: 7%;
     width: 75%;
   }
 }
@@ -401,33 +401,46 @@ body, html {
 }
 
 .portfolio .projects-container {
-  height: 80%;
-  width: 80%;
+  height: 70%;
+  width: 68%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: space-evenly;
-      -ms-flex-pack: space-evenly;
-          justify-content: space-evenly;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   -webkit-box-align: 0;
       -ms-flex-align: 0;
           align-items: 0;
-  -ms-flex-line-pack: space-evenly;
-      align-content: space-evenly;
+  -ms-flex-line-pack: justify;
+      align-content: space-between;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
 }
 
 @media (max-width: 650px) {
   .portfolio .projects-container {
-    height: 90%;
+    height: 80%;
     width: 80%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: 0;
+        -ms-flex-align: 0;
+            align-items: 0;
+    -ms-flex-line-pack: justify;
+        align-content: space-between;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
   }
 }
 
 .portfolio .projects-container a {
-  height: 40%;
-  width: 40%;
+  height: 45%;
+  width: 46%;
   position: relative;
   border-radius: 3%;
   -webkit-box-shadow: 9px 10px 34px 5px rgba(107, 101, 107, 0.79);

@@ -41,7 +41,8 @@ $colors: (
     }
 }
 
-// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - //
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - //
+
 
 body, html {
     margin: 0;
@@ -202,11 +203,11 @@ body, html {
     }
 
     .title-container {
-        @include size(8%, 75%);
-        @include flex(center, flex-end, 0, 0);
+        @include size(9%, 75%);
+        @include flex(center, flex-start, 0, 0);
 
         @include desktop(650px) {
-            @include size(5%, 75%);
+            @include size(7%, 75%);
         }
 
         h2 {
@@ -219,15 +220,16 @@ body, html {
     }
 
     .projects-container {
-        @include size(80%, 80%);
-        @include flex(space-evenly, 0, space-evenly, wrap);
+        @include size(70%, 68%);
+        @include flex(space-between, 0, space-between, wrap);
 
         @include desktop(650px) {
-            @include size(90%, 80%);
+            @include size(80%, 80%);
+            @include flex(center, 0, space-between, wrap);
         }
 
         a {
-            @include size(40%, 40%);
+            @include size(45%, 46%);
             position: relative;
             border-radius: 3%;
             -webkit-box-shadow: 9px 10px 34px 5px rgba(107,101,107,0.79);
