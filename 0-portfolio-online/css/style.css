@@ -573,6 +573,7 @@ body, html {
       align-content: 0;
   -ms-flex-wrap: 0;
       flex-wrap: 0;
+  color: white;
 }
 
 .footer p {

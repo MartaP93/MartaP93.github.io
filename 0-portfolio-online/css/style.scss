@@ -287,6 +287,7 @@ body, html {
     @include size(15vh,100%);
     background-color: color(grey1);
     @include flex(center, center, 0, 0);
+    color: color(white1);
 
     p {
         font-size: 1vw;
