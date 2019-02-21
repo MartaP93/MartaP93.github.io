@@ -2,6 +2,10 @@
 
     /* G A L L E R Y */
 
+    #gallery {
+        height: 550vh;
+    }
+
     #gallery-column1, #gallery-column2 {
         height: 50%;
         width: 99%;
