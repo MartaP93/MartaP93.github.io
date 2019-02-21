@@ -55,9 +55,11 @@ body, html {
   font-size: 3vw;
 }
 
-@media (max-width: 560px) {
+@media (max-width: 420px) {
   .nav-bar h1 {
-    font-size: 1.2em;
+    height: 100%;
+    width: 0%;
+    font-size: 0;
   }
 }
 
@@ -106,6 +108,14 @@ body, html {
 @media (max-width: 560px) {
   .nav-bar ul {
     font-size: 0.8em;
+  }
+}
+
+@media (max-width: 420px) {
+  .nav-bar ul {
+    margin-right: 0;
+    height: 100%;
+    width: 100%;
   }
 }
 

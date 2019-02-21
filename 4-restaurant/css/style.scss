@@ -78,8 +78,9 @@ body, html {
         font-family: 'Dancing Script', cursive;
         font-size: 3vw;
 
-        @include desktop(560px) {
-            font-size: 1.2em;
+        @include desktop(420px) {
+            @include size(100%, 0%);
+            font-size: 0;
         }
     }
 
@@ -92,6 +93,11 @@ body, html {
         text-transform: uppercase;
         @include responsive-height-width(776px, 100%, 60%, 560px, 100%, 80%);
         @include responsive-font(776px, 0.9em, 560px, 0.8em);
+
+        @include desktop(420px) {
+            margin-right: 0;
+            @include size(100%, 100%);
+        }
 
         li {
             list-style-type: none;
